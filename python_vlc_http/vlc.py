@@ -175,6 +175,11 @@ class HttpVLC:
         new_volume = str(int(volume * 320))
         return self.parse_data(command=f"volume&val={new_volume}")
 
+    def play_mrl(self, mrl):
+        """Play the given media identified by an MRL.
+           MRL example: file://(...)"""
+        return self.parse_data(command=f"in_play&input={mrl}")
+
     def stop(self):
         """Send stop command."""
         return self.parse_data(command="pl_stop")
